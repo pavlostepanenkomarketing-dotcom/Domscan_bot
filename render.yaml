@@ -9,9 +9,13 @@ services:
       - key: TELEGRAM_TOKEN
         sync: false
 
-cronJobs:
-  - name: daily-check
-    schedule: "30 4 * * *"
-    command: "python daily.py"
-    env:
-      TELEGRAM_TOKEN: $TELEGRAM_TOKEN
+services:
+  - type: web
+    name: domscan-bot
+    env: python
+    region: frankfurt
+    buildCommand: ""
+    startCommand: "python bot.py"
+    envVars:
+      - key: TELEGRAM_TOKEN
+        sync: false
