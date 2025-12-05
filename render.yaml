@@ -8,14 +8,3 @@ services:
     envVars:
       - key: TELEGRAM_TOKEN
         sync: false
-
-services:
-  - type: web
-    name: domscan-bot
-    env: python
-    region: frankfurt
-    buildCommand: ""
-    startCommand: "python bot.py"
-    envVars:
-      - key: TELEGRAM_TOKEN
-        sync: false
